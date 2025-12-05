@@ -45,7 +45,7 @@ struct ColorSquare: View {
     
     var body: some View {
         color
-        .frame(width: 50, height: 50)
+        .frame(width: 110, height: 100)
     }
 }
 
@@ -71,9 +71,12 @@ struct ContentView: View {
                 
                 ForEach(0..<3){ _ in
                     ColorSquare(color: .pink)
+                        
                     
                 }
                 .frame(width:80, height:90)
+                .border(Color.blue, width: 4)
+
 
             }
             
