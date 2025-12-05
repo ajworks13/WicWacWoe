@@ -69,13 +69,54 @@ struct ContentView: View {
         Grid{
             GridRow{
                 
-                ForEach(0..<3){ _ in
-                    ColorSquare(color: .pink)
-                        
-                    
+//                ForEach(0..<3){ _ in
+//                    ColorSquare(color: .pink)
+        
+              //  }
+//                .frame(width:80, height:90)
+//                .border(Color.blue, width: 4)
+                
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
                 }
-                .frame(width:80, height:90)
-                .border(Color.blue, width: 4)
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
+                
+                //-------------------------------------------------------------
+                
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
+                }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
 
 
             }
