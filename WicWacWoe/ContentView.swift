@@ -53,11 +53,11 @@ struct ColorSquare: View {
 struct ContentView: View {
     
     @State var box1 = " "
-    @State private var box2 = "      "
-    @State private var box3 = "      "
-    @State private var box4 = "      "
-    @State private var box5 = "      "
-    @State private var box6 = "      "
+    @State private var box2 = " "
+    @State private var box3 = " "
+    @State private var box4 = " "
+    @State private var box5 = " "
+    @State private var box6 = " "
     @State private var count: Int = 0
     
     @State private var buttonText = "Press This"
@@ -100,11 +100,33 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box2 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box2)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
+                }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
+                
+                //-------------------------------------------------------------
+                
+                Button(action: {
+                    // Action to perform
+                    box3 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box3)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
@@ -124,10 +146,25 @@ struct ContentView: View {
             //--------------------------------------------
             GridRow{
                 
-                ForEach(0..<3){ _ in
-                    ColorSquare(color: .pink)
-                    
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
                 }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
             }
             //-------------------------------------------
             GridRow{
