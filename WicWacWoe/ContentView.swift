@@ -58,6 +58,10 @@ struct ContentView: View {
     @State private var box4 = " "
     @State private var box5 = " "
     @State private var box6 = " "
+    @State private var box7 = " "
+    @State private var box8 = " "
+    @State private var box9 = " "
+
     @State private var count: Int = 0
     
     @State private var buttonText = "Press This"
@@ -147,11 +151,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box4 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box4)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
@@ -170,11 +174,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box5 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box5)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
@@ -193,11 +197,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box6 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box6)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
@@ -217,11 +221,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box7 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box7)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
@@ -239,11 +243,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box8 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box8)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
@@ -262,11 +266,11 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
+                    box9 = "X"
 
                 }) {
                     HStack {
-                        Text("\(box1)")
+                        Text("\(box9)")
                             .font(.custom("biggestText", size: 110))
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
