@@ -67,7 +67,7 @@ struct ContentView: View {
     var body: some View {
         
         Grid{
-            GridRow{
+            GridRow{// ---------            GRID 1
                 
 //                ForEach(0..<3){ _ in
 //                    ColorSquare(color: .pink)
@@ -143,8 +143,53 @@ struct ContentView: View {
 
             }
             
-            //--------------------------------------------
-            GridRow{
+            GridRow{// ------------               GRID 2
+                
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
+                }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
+                
+                
+                
+                
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
+                }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
+                
+                
+                
                 
                 Button(action: {
                     // Action to perform
@@ -166,8 +211,54 @@ struct ContentView: View {
                 .border(Color.orange, width: 4)
                 .fixedSize()
             }
-            //-------------------------------------------
-            GridRow{
+
+
+            GridRow{ // -------------            GRID 3
+                
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
+                }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
+                
+                
+                
+                Button(action: {
+                    // Action to perform
+                    box1 = "X"
+
+                }) {
+                    HStack {
+                        Text("\(box1)")
+                            .font(.custom("biggestText", size: 110))
+                            .border(Color.red, width: 4)
+                            .frame(width:80, height:90)
+
+
+                    }
+            
+                }
+                .buttonStyle(NavigationButtonStyle(color: .purple))
+               // .frame(maxWidth: 90)
+                .border(Color.orange, width: 4)
+                .fixedSize()
+                
+                
+                
                 
                 Button(action: {
                     // Action to perform
