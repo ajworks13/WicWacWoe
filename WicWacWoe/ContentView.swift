@@ -67,19 +67,19 @@ struct ContentView: View {
     @State private var buttonText = "Press This"
     
 
-    func takingTurns(){
+    func takingTurns() -> String{
         countForTurns += 1
         
         if(countForTurns % 2 == 0){
-            box1 = "O"
+            return "O"
         }else{
-            box1 = "X"
+            return "X"
         }
     }
     
     var body: some View {
         
-       
+        let box1Imut = ""
         
         Grid{
             GridRow{// ---------            GRID 1
@@ -91,10 +91,13 @@ struct ContentView: View {
 //                .frame(width:80, height:90)
 //                .border(Color.blue, width: 4)
                 
+                // create local prviate immutable variable for selected options between X or O.
+                
                 Button(action: {
                     // Action to perform
-                    box1 = "X"
-                    self.takingTurns()
+                    // box1 = "X"
+                
+                    box1 = takingTurns()
 
                 }) {
                     HStack {
