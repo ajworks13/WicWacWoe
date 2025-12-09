@@ -79,7 +79,6 @@ struct ContentView: View {
     
     var body: some View {
         
-        let box1Imut = ""
         
         Grid{
             GridRow{// ---------            GRID 1
@@ -98,6 +97,10 @@ struct ContentView: View {
                     // box1 = "X"
                 
                     box1 = takingTurns()
+                    let box1Imut = box1
+                    #if DEBUG
+                    print(box1Imut)
+                    #endif
 
                 }) {
                     HStack {
@@ -107,6 +110,7 @@ struct ContentView: View {
                             .frame(width:80, height:90)
 
 
+
                     }
             
                 }
@@ -114,6 +118,8 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                
+
                 
                 //-------------------------------------------------------------
                 
