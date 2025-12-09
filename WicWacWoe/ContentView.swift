@@ -69,7 +69,12 @@ struct ContentView: View {
 
     func takingTurns(){
         countForTurns += 1
-        box1 = "O"
+        
+        if(countForTurns % 2 == 0){
+            box1 = "O"
+        }else{
+            box1 = "X"
+        }
     }
     
     var body: some View {
@@ -89,6 +94,7 @@ struct ContentView: View {
                 Button(action: {
                     // Action to perform
                     box1 = "X"
+                    self.takingTurns()
 
                 }) {
                     HStack {
