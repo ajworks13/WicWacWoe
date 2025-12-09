@@ -62,14 +62,19 @@ struct ContentView: View {
     @State private var box8 = " "
     @State private var box9 = " "
 
-    @State private var count: Int = 0
+    @State private var countForTurns: Int = 0
     
     @State private var buttonText = "Press This"
     
 
-    
+    func takingTurns(){
+        countForTurns += 1
+        box1 = "O"
+    }
     
     var body: some View {
+        
+       
         
         Grid{
             GridRow{// ---------            GRID 1
