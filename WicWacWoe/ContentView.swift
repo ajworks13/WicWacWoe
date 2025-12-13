@@ -73,9 +73,12 @@ struct ContentView: View {
         if(countForTurns % 2 == 0){
             return "O"
 
+
         }else{
             return "X"
         }
+        
+        
     }
     
     var body: some View {
