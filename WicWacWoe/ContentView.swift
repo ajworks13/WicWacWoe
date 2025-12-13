@@ -72,12 +72,9 @@ struct ContentView: View {
         
         if(countForTurns % 2 == 0){
             return "O"
-            
-           
 
         }else{
             return "X"
-            
         }
         
         
@@ -130,7 +127,7 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
-                .disabled(box1 == "X" ? true : false)
+                .disabled(box1 == "O" || box1 == "X" ? true : false)
                 
 
                 
