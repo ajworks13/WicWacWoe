@@ -72,10 +72,12 @@ struct ContentView: View {
         
         if(countForTurns % 2 == 0){
             return "O"
-
+            
+           
 
         }else{
             return "X"
+            
         }
         
         
@@ -102,6 +104,11 @@ struct ContentView: View {
                     // box1 = "X"
                 
                     box1 = takingTurns()
+                    
+//                    if(box1.contains("O")){
+//                        button.is
+//                    }
+                    
                     let box1Imut = box1
                     #if DEBUG
                     print(box1Imut)
@@ -123,6 +130,7 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box1 == "X" ? true : false)
                 
 
                 
