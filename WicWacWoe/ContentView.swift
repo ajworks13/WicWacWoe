@@ -80,7 +80,25 @@ struct ContentView: View {
         
     }
     
-    func referee(){
+    func referee(b1: String,
+                 b2: String,
+                 b3: String,
+                 b4: String,
+                 b5: String,
+                 b6: String,
+                 b7: String,
+                 b8: String,
+                 b9: String
+    ){
+        
+        
+        var row1 = [b1,b2,b3]
+        var row2 = [b4,b5,b6]
+        var row3 = [b7,b8,b9]
+        
+        if(row1[0] == "X"){
+            box2 = "P"
+        }
         
     }
     
@@ -106,6 +124,7 @@ struct ContentView: View {
                     // box1 = "X"
                 
                     box1 = takingTurns()
+                    referee(answers: box1)
                     
 //                    if(box1.contains("O")){
 //                        button.is
