@@ -80,6 +80,11 @@ struct ContentView: View {
         
     }
     
+    func referee(){
+        
+    }
+    
+    
     var body: some View {
         let _ = print("hi")
 
@@ -157,7 +162,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box3 = "X"
+                    box3 = takingTurns()
 
                 }) {
                     HStack {
@@ -174,6 +179,8 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box3 == "O" || box3 == "X" ? true : false)
+
 
 
             }
@@ -182,7 +189,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box4 = "X"
+                    box4 = takingTurns()
 
                 }) {
                     HStack {
@@ -199,13 +206,15 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box4 == "O" || box4 == "X" ? true : false)
+
                 
                 
                 
                 
                 Button(action: {
                     // Action to perform
-                    box5 = "X"
+                    box5 = takingTurns()
 
                 }) {
                     HStack {
@@ -222,13 +231,15 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box5 == "O" || box5 == "X" ? true : false)
+
                 
                 
                 
                 
                 Button(action: {
                     // Action to perform
-                    box6 = "X"
+                    box6 = takingTurns()
 
                 }) {
                     HStack {
@@ -245,6 +256,8 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box6 == "O" || box6 == "X" ? true : false)
+
             }
 
 
@@ -252,7 +265,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box7 = "X"
+                    box7 = takingTurns()
 
                 }) {
                     HStack {
@@ -269,12 +282,14 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box7 == "O" || box7 == "X" ? true : false)
+
                 
                 
                 
                 Button(action: {
                     // Action to perform
-                    box8 = "X"
+                    box8 = takingTurns()
 
                 }) {
                     HStack {
@@ -291,13 +306,15 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box8 == "O" || box8 == "X" ? true : false)
+
                 
                 
                 
                 
                 Button(action: {
                     // Action to perform
-                    box9 = "X"
+                    box9 = takingTurns()
 
                 }) {
                     HStack {
@@ -314,6 +331,8 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box9 == "O" || box9 == "X" ? true : false)
+
             }
         }
         
