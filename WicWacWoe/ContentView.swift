@@ -118,8 +118,6 @@ struct ContentView: View {
                             .border(Color.red, width: 4)
                             .frame(width:80, height:90)
 
-
-
                     }
             
                 }
@@ -135,7 +133,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     // Action to perform
-                    box2 = "X"
+                    box2 = takingTurns()
 
                 }) {
                     HStack {
@@ -152,6 +150,8 @@ struct ContentView: View {
                // .frame(maxWidth: 90)
                 .border(Color.orange, width: 4)
                 .fixedSize()
+                .disabled(box2 == "O" || box2 == "X" ? true : false)
+
                 
                 //-------------------------------------------------------------
                 
