@@ -67,6 +67,8 @@ struct ContentView: View {
     @State private var buttonText = "Press This"
     
     @State private var show = false
+    
+    @State private var showingPopover = false
 
     
 
@@ -85,10 +87,15 @@ struct ContentView: View {
     
     func winnerPopUp() -> some View{
         ZStack{
+            
+            
             VStack{
                 Text("Winner")
             }
+            .frame(height: 1200)
+            .background(Color.green)
         }
+        
     }
 
     
@@ -111,10 +118,13 @@ struct ContentView: View {
                 
         if(row1[0] == "X"){
             box2 = "P"
-            var _ = winnerPopUp()
-
+            
+                //let _ = self.winnerPopUp()
+            popover(isPresented: $showingPopover){
+                Text("Its here")
+                    .padding()
+            }
          
-            //.popover(isPresented: self.$show, attachmentAnchor: .rect(CGRect(x:0, y: 20, width: 160, height: 100))),
         }
         
     }
@@ -122,7 +132,7 @@ struct ContentView: View {
     
     var body: some View {
         let _ = print("hi")
-
+      //  winnerPopUp()
         
         Grid{
             GridRow{// ---------            GRID 1
