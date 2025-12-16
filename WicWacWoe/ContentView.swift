@@ -52,7 +52,7 @@ struct ColorSquare: View {
 
 struct ContentView: View {
     
-    @State var box1 = " "
+    @State private var box1 = " "
     @State private var box2 = " "
     @State private var box3 = " "
     @State private var box4 = " "
@@ -65,6 +65,9 @@ struct ContentView: View {
     @State private var countForTurns: Int = 0
     
     @State private var buttonText = "Press This"
+    
+    @State private var show = false
+
     
 
     func takingTurns() -> String{
@@ -80,15 +83,24 @@ struct ContentView: View {
         
     }
     
-    func referee(b1: String,
-                 b2: String,
-                 b3: String,
-                 b4: String,
-                 b5: String,
-                 b6: String,
-                 b7: String,
-                 b8: String,
-                 b9: String
+    func winnerPopUp() -> some View{
+        ZStack{
+            VStack{
+                Text("Winner")
+            }
+        }
+    }
+
+    
+    func referee(b1: String = "",
+                 b2: String = "",
+                 b3: String = "",
+                 b4: String = "",
+                 b5: String = "",
+                 b6: String = "",
+                 b7: String = "",
+                 b8: String = "",
+                 b9: String = ""
     ){
         
         
@@ -96,8 +108,13 @@ struct ContentView: View {
         var row2 = [b4,b5,b6]
         var row3 = [b7,b8,b9]
         
+                
         if(row1[0] == "X"){
             box2 = "P"
+            var _ = winnerPopUp()
+
+         
+            //.popover(isPresented: self.$show, attachmentAnchor: .rect(CGRect(x:0, y: 20, width: 160, height: 100))),
         }
         
     }
@@ -124,7 +141,7 @@ struct ContentView: View {
                     // box1 = "X"
                 
                     box1 = takingTurns()
-                    referee(answers: box1)
+                    referee(b1: box1)
                     
 //                    if(box1.contains("O")){
 //                        button.is
