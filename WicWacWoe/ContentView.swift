@@ -38,6 +38,40 @@ struct NavigationButtonStyle: ButtonStyle {
     }
 }
 
+    
+struct CustomDialogView: View {
+    @Environment(\.dismiss) var dismiss
+ 
+    var body: some View {
+        VStack {
+            VStack {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundStyle(.white)
+                    .padding(12)
+                 
+                Text("Important Notice")
+                    .font(.largeTitle)
+                    .bold()
+                 
+                Text("Please ensure you have backed up your data before proceeding.")
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+            }
+            .padding()
+ 
+            Spacer()
+ 
+            Button("Dismiss") {
+                dismiss()
+            }
+            .padding()
+        }
+
+    }
+}
 
 
 struct ColorSquare: View {
@@ -69,6 +103,8 @@ struct ContentView: View {
     @State private var show = false
     
     @State private var showingPopover = false
+    
+    @State private var isPresented = false
 
     
 
@@ -92,8 +128,8 @@ struct ContentView: View {
             VStack{
                 Text("Winner")
             }
-            .frame(height: 1200)
-            .background(Color.green)
+            .popView(isPresented: $isPresented, content: CustomDialogView.init)
+            
         }
         
     }
@@ -120,10 +156,7 @@ struct ContentView: View {
             box2 = "P"
             
                 //let _ = self.winnerPopUp()
-            popover(isPresented: $showingPopover){
-                Text("Its here")
-                    .padding()
-            }
+            
          
         }
         
