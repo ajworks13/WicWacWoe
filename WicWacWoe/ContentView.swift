@@ -39,37 +39,34 @@ struct NavigationButtonStyle: ButtonStyle {
 }
 
     
-struct CustomDialogView: View {
-    @Environment(\.dismiss) var dismiss
- 
-    var body: some View {
-        VStack {
-            VStack {
-                Image(systemName: "exclamationmark.triangle.fill")
+struct CustomAlert: View{
+    var body:some View{
+        VStack(alignment: .leading) {
+            
+            HStack(spacing: 12) {
+                Image(systemName: "exclamationmark.triangle")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundStyle(.white)
-                    .padding(12)
-                 
-                Text("Important Notice")
-                    .font(.largeTitle)
-                    .bold()
-                 
-                Text("Please ensure you have backed up your data before proceeding.")
-                    .font(.body)
-                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color.red)
+                    .frame(width: 30,height: 30)
+                
+                Text("Alert !")
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .font(.title)
+                
+                
             }
-            .padding()
- 
-            Spacer()
- 
-            Button("Dismiss") {
-                dismiss()
-            }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
+            
+            Text("Something went Wrong... Try Again.")
+                .font(.subheadline)
+                .padding(30)
+            
         }
-
+        .background(Color.white)
+        .cornerRadius(20)
+        
     }
 }
 
@@ -80,6 +77,70 @@ struct ColorSquare: View {
     var body: some View {
         color
         .frame(width: 110, height: 100)
+    }
+}
+
+struct Popup<Content: View>: View {
+
+    @Binding var isPresented: Bool
+    let content: Content
+    let dismissOnTapOutside: Bool
+
+    private let buttonSize: CGFloat = 24
+
+    var body: some View {
+
+        ZStack {
+
+            Rectangle()
+                .fill(.gray.opacity(0.7))
+                .ignoresSafeArea()
+                .onTapGesture {
+                    if dismissOnTapOutside {
+                        withAnimation {
+                            isPresented = false
+                        }
+                    }
+                }
+
+            content
+                .frame(
+                    width: UIScreen.main.bounds.size.width - 100, height: 300)
+                .padding()
+                .padding(.top, buttonSize)
+                .background(.white)
+                .cornerRadius(12)
+                .overlay(alignment: .topTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            isPresented = false
+                        }
+                    }, label: {
+                        Image(systemName: "xmark.circle")
+                    })
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                    .foregroundStyle(Color.gray.opacity(0.7))
+                    .padding(.all, 8)
+                }
+        }
+        .ignoresSafeArea(.all)
+        .frame(
+            width: UIScreen.main.bounds.size.width,
+            height: UIScreen.main.bounds.size.height,
+            alignment: .center
+        )
+    }
+        
+}
+
+extension Popup {
+
+    init(isPresented: Binding<Bool>,
+         dismissOnTapOutside: Bool = true,
+         @ViewBuilder _ content: () -> Content) {
+        _isPresented = isPresented
+        self.dismissOnTapOutside = dismissOnTapOutside
+        self.content = content()
     }
 }
 
@@ -104,8 +165,8 @@ struct ContentView: View {
     
     @State private var showingPopover = false
     
-    @State private var isPresented = false
-
+    @State private var presentPopup = false
+    
     
 
     func takingTurns() -> String{
@@ -128,7 +189,6 @@ struct ContentView: View {
             VStack{
                 Text("Winner")
             }
-            .popView(isPresented: $isPresented, content: CustomDialogView.init)
             
         }
         
@@ -155,9 +215,27 @@ struct ContentView: View {
         if(row1[0] == "X"){
             box2 = "P"
             
-                //let _ = self.winnerPopUp()
+            let _ = self.winnerPopUp()
+            presentPopup = true
+
+            var body: some View {
+                    ZStack {
+                        Button {
+                            withAnimation(.linear(duration: 0.3)) {
+                                presentPopup = true
+                            }
+                        } label: {
+                            Text("Present Pop-up Dialog")
+                        }
+                        if presentPopup {
+                            Popup(isPresented: $presentPopup) {
+                                Text("something")
+                            }
+                        }
+                    }
+                }
+            //-----------------------------------------------
             
-         
         }
         
     }
