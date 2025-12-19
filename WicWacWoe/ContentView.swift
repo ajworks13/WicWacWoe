@@ -215,25 +215,10 @@ struct ContentView: View {
         if(row1[0] == "X"){
             box2 = "P"
             
-            let _ = self.winnerPopUp()
-            presentPopup = true
+//            let _ = self.winnerPopUp()
 
-            var body: some View {
-                    ZStack {
-                        Button {
-                            withAnimation(.linear(duration: 0.3)) {
-                                presentPopup = true
-                            }
-                        } label: {
-                            Text("Present Pop-up Dialog")
-                        }
-                        if presentPopup {
-                            Popup(isPresented: $presentPopup) {
-                                Text("something")
-                            }
-                        }
-                    }
-                }
+            
+            
             //-----------------------------------------------
             
         }
